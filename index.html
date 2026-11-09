@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passive Revenue AI Suite | Generate Income Streams Automatically</title>
+    <meta name="description" content="AI-powered tools to design, build, and automate passive revenue streams. Digital products, micro-tools, bots, and automations.">
+    <style>
+        :root {
+            --bg: #0f0f13;
+            --card: #1a1a23;
+            --accent: #00ff9d;
+            --accent2: #7c5cff;
+            --text: #e8e8f0;
+            --muted: #8888a0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #111118 0%, #1a0a2e 100%);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #2a2a3a;
+        }
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { color: var(--muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #121218;
+            flex-wrap: wrap;
+        }
+        nav button {
+            background: #222230;
+            color: var(--text);
+            border: 1px solid #333;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        nav button.active, nav button:hover {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+        main { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
+        .tool-section { display: none; }
+        .tool-section.active { display: block; }
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #2a2a3a;
+        }
+        label { display: block; margin-bottom: 0.4rem; color: var(--muted); }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            background: #121218;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+        }
+        button.generate {
+            background: linear-gradient(90deg, var(--accent), #00cc7a);
+            color: #000;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button.generate:hover { opacity: 0.9; }
+        .output {
+            background: #0d0d12;
+            border-radius: 8px;
+            padding: 1.2rem;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+            border: 1px solid #2a2a3a;
+            min-height: 150px;
+        }
+        .ideas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .idea-card {
+            background: #121218;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        .idea-card h4 { color: var(--accent); margin-bottom: 0.5rem; }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted);
+            border-top: 1px solid #2a2a3a;
+            margin-top: 3rem;
+        }
+        .affiliate { color: var(--accent); text-decoration: none; }
+        .badge { background: var(--accent2); color: white; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.75rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Passive Revenue AI Suite</h1>
+        <p class="subtitle">Design, build, and automate passive income streams. Digital products, micro-tools, bots, and AI-sustained automations — all in one place.</p>
+        <p style="margin-top: 1rem;"><span class="badge">Free Tools</span> <span class="badge">AI-Powered</span> <span class="badge">Deployable</span></p>
+    </header>
+
+    <nav>
+        <button class="active" onclick="showTool('ideas')">Idea Generator</button>
+        <button onclick="showTool('product')">Product Builder</button>
+        <button onclick="showTool('pricing')">Pricing Tool</button>
+        <button onclick="showTool('calendar')">Content Calendar</button>
+        <button onclick="showTool('scripts')">Automation Scripts</button>
+    </nav>
+
+    <main>
+        <!-- Idea Generator -->
+        <div id="ideas" class="tool-section active">
+            <div class="card">
+                <h2>Passive Income Idea Generator</h2>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Enter a niche or skill. Get 8 actionable passive revenue ideas with monetization models.</p>
+                <label>Your Niche / Skill / Interest</label>
+                <input type="text" id="niche" placeholder="e.g. fitness, AI tools, real estate, cooking, parenting">
+                <label>Experience Level</label>
+                <select id="level">
+                    <option>Beginner</option>
+                    <option>Intermediate</option>
+                    <option>Expert</option>
+                </select>
+                <button class="generate" onclick="generateIdeas()">Generate Ideas</button>
+                <div id="ideas-output" class="ideas-grid"></div>
+            </div>
+        </div>
+
+        <!-- Product Builder -->
+        <div id="product" class="tool-section">
+            <div class="card">
+                <h2>Digital Product Builder</h2>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Generate a complete outline for an ebook, prompt pack, or template pack.</p>
+                <label>Product Type</label>
+                <select id="product-type">
+                    <option>AI Prompt Pack</option>
+                    <option>Ebook / Guide</option>
+                    <option>Notion Template</option>
+                    <option>Canva Template Pack</option>
+                    <option>Automation Script Bundle</option>
+                </select>
+                <label>Topic / Niche</label>
+                <input type="text" id="product-topic" placeholder="e.g. ChatGPT prompts for freelancers">
+                <button class="generate" onclick="generateProduct()">Build Product Outline</button>
+                <div id="product-output" class="output"></div>
+            </div>
+        </div>
+
+        <!-- Pricing Tool -->
+        <div id="pricing" class="tool-section">
+            <div class="card">
+                <h2>Pricing Optimizer</h2>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Calculate optimal pricing for digital products and micro-SaaS.</p>
+                <label>Product Type</label>
+                <select id="price-type">
+                    <option value="ebook">Ebook / Guide ($7–$47)</option>
+                    <option value="prompt">Prompt Pack ($9–$29)</option>
+                    <option value="saas">Micro-SaaS ($9–$49/mo)</option>
+                    <option value="course">Mini-Course ($29–$97)</option>
+                </select>
+                <label>Perceived Value (1-10)</label>
+                <input type="range" id="value" min="1" max="10" value="7" oninput="document.getElementById('val-display').textContent=this.value">
+                <span id="val-display">7</span>
+                <button class="generate" onclick="calculatePrice()">Optimize Pricing</button>
+                <div id="pricing-output" class="output"></div>
+            </div>
+        </div>
+
+        <!-- Content Calendar -->
+        <div id="calendar" class="tool-section">
+            <div class="card">
+                <h2>Affiliate Content Calendar</h2>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Generate a 30-day content plan for an affiliate or ad-supported site.</p>
+                <label>Main Topic</label>
+                <input type="text" id="cal-topic" placeholder="e.g. best AI tools for solopreneurs">
+                <button class="generate" onclick="generateCalendar()">Generate Calendar</button>
+                <div id="calendar-output" class="output"></div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <div id="scripts" class="tool-section">
+            <div class="card">
+                <h2>Automation Scripts & Templates</h2>
+                <p style="color: var(--muted); margin-bottom: 1rem;">Ready-to-use scripts for content generation, lead magnets, and passive systems. Download and customize.</p>
+                <div class="ideas-grid">
+                    <div class="idea-card">
+                        <h4>Content Generator Script</h4>
+                        <p>Python script using AI APIs to generate blog posts or social content on schedule.</p>
+                        <button class="generate" style="margin-top:0.5rem;" onclick="downloadScript('content')">Download</button>
+                    </div>
+                    <div class="idea-card">
+                        <h4>Lead Magnet Automation</h4>
+                        <p>Template for auto-delivering free digital products and building email lists.</p>
+                        <button class="generate" style="margin-top:0.5rem;" onclick="downloadScript('lead')">Download</button>
+                    </div>
+                    <div class="idea-card">
+                        <h4>GitHub Pages Deployer</h4>
+                        <p>Instructions and template for hosting this suite yourself.</p>
+                        <button class="generate" style="margin-top:0.5rem;" onclick="downloadScript('deploy')">Download</button>
+                    </div>
+                </div>
+                <div id="script-output" class="output" style="display:none;"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Built for passive revenue. Monetize this suite with <a class="affiliate" href="https://gumroad.com" target="_blank">Gumroad</a>, <a class="affiliate" href="https://lemonsqueezy.com" target="_blank">Lemon Squeezy</a>, or affiliates.</p>
+        <p style="margin-top:0.5rem;">GitHub: <a class="affiliate" href="https://github.com/elbowfox/passive-revenue-ai-suite" target="_blank">elbowfox/passive-revenue-ai-suite</a></p>
+        <p style="margin-top:1rem; font-size:0.85rem;">Tools are client-side and free. Upgrade by selling the generated products or adding paid tiers.</p>
+    </footer>
+
+    <script>
+        function showTool(id) {
+            document.querySelectorAll('.tool-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function generateIdeas() {
+            const niche = document.getElementById('niche').value || 'general productivity';
+            const level = document.getElementById('level').value;
+            const ideas = [
+                { title: `${niche} Prompt Pack`, desc: `Sell 50-100 specialized AI prompts. Price $19. Host on Gumroad. AI can generate the content.` },
+                { title: `${niche} Notion Template`, desc: `Dashboard + trackers for ${niche}. Price $29. Recurring updates possible.` },
+                { title: `Affiliate Blog on ${niche}`, desc: `SEO content + affiliate links to tools. Passive via AdSense + affiliates. Automate with AI writing.` },
+                { title: `${niche} Micro-SaaS Tool`, desc: `Simple calculator or generator. Freemium $9-29/mo. Deploy on Vercel + Stripe.` },
+                { title: `Email Newsletter`, desc: `Weekly ${niche} tips. Monetize with sponsorships or paid tier. AI drafts content.` },
+                { title: `YouTube Automation`, desc: `Faceless channel with AI voice + stock. Affiliate + AdSense. Scripts automated.` },
+                { title: `Chrome Extension`, desc: `Browser tool for ${niche} workflow. Freemium model. One-time build.` },
+                { title: `Lead Magnet Funnel`, desc: `Free ${niche} checklist → email list → paid product. Fully automatable.` }
+            ];
+            const container = document.getElementById('ideas-output');
+            container.innerHTML = ideas.map(i => `
+                <div class="idea-card">
+                    <h4>${i.title}</h4>
+                    <p>${i.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        function generateProduct() {
+            const type = document.getElementById('product-type').value;
+            const topic = document.getElementById('product-topic').value || 'AI productivity';
+            let outline = `PRODUCT: ${type} — ${topic}\n\n`;
+            outline += `TITLE SUGGESTIONS:\n`;
+            outline += `1. The Ultimate ${topic} ${type}\n`;
+            outline += `2. ${topic} Accelerator Pack\n`;
+            outline += `3. Passive ${topic} System\n\n`;
+            outline += `OUTLINE:\n`;
+            if (type.includes('Prompt')) {
+                outline += `- 10 Foundational Prompts\n- 20 Advanced Workflow Prompts\n- 15 Niche-Specific Prompts\n- Bonus: Customization Guide\n- Pricing: $19–$29\n`;
+            } else if (type.includes('Ebook')) {
+                outline += `- Introduction & Why This Matters\n- 5 Core Strategies\n- Step-by-Step Implementation\n- Tools & Resources\n- Case Studies / Examples\n- Action Checklist\n- Pricing: $17–$47\n`;
+            } else {
+                outline += `- Core Templates (5-10)\n- Setup Guide\n- Usage Examples\n- Bonus Automations\n- Pricing: $29–$49\n`;
+            }
+            outline += `\nNEXT STEPS:\n1. Generate content with AI\n2. Format as PDF or Notion\n3. Create sales page\n4. List on Gumroad / Payhip\n5. Drive traffic via content or ads`;
+            document.getElementById('product-output').textContent = outline;
+        }
+
+        function calculatePrice() {
+            const type = document.getElementById('price-type').value;
+            const value = parseInt(document.getElementById('value').value);
+            const bases = { ebook: 27, prompt: 19, saas: 19, course: 49 };
+            const price = Math.round(bases[type] * (value / 7));
+            let text = `Recommended Price: $${price}\n\n`;
+            text += `Type: ${document.getElementById('price-type').options[document.getElementById('price-type').selectedIndex].text}\n`;
+            text += `Value Score: ${value}/10\n\n`;
+            text += `Strategy:\n`;
+            text += `- Launch at $${price}\n`;
+            text += `- Offer early-bird $${Math.round(price * 0.7)} for first 50\n`;
+            text += `- Bundle with related products for 2-3x\n`;
+            text += `- Recurring if SaaS: $${price}/mo\n`;
+            document.getElementById('pricing-output').textContent = text;
+        }
+
+        function generateCalendar() {
+            const topic = document.getElementById('cal-topic').value || 'AI tools';
+            let cal = `30-Day Content Calendar: ${topic}\n\n`;
+            const types = ['How-to Guide', 'Tool Review', 'Comparison', 'Listicle', 'Case Study', 'Tutorial'];
+            for (let d = 1; d <= 30; d++) {
+                const type = types[d % types.length];
+                cal += `Day ${d}: ${type} — "${topic} tips / best practices #${d}"\n`;
+            }
+            cal += `\nMonetization: Affiliate links in every post + AdSense. Automate writing with AI.`;
+            document.getElementById('calendar-output').textContent = cal;
+        }
+
+        function downloadScript(type) {
+            const scripts = {
+                content: `# Content Generator Automation\n# Requires: openai or grok API key\n# Schedule with cron or GitHub Actions\n\nimport os\nprint("AI Content Generator Template")\nprint("1. Set API_KEY environment variable")\nprint("2. Define topics list")\nprint("3. Generate and publish to WordPress/Medium via API")\nprint("4. Monetize with affiliates")`,
+                lead: `# Lead Magnet Automation Template\n# Use with ConvertKit, Mailchimp, or Beehiiv\n\nprint("1. Create free PDF with this suite")\nprint("2. Set up landing page")\nprint("3. Auto-deliver on email signup")\nprint("4. Nurture sequence → paid product")`,
+                deploy: `# Deploy this suite\n# 1. Fork the GitHub repo\n# 2. Enable GitHub Pages (Settings → Pages → main branch)\n# 3. Or deploy to Vercel/Netlify for free\n# 4. Add your affiliate links\n# 5. Promote on X, Reddit, IndieHackers`
+            };
+            document.getElementById('script-output').style.display = 'block';
+            document.getElementById('script-output').textContent = scripts[type] || 'Script ready.';
+        }
+    </script>
+</body>
+</html>
